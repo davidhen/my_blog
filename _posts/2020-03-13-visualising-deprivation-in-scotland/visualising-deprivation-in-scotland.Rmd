@@ -28,6 +28,8 @@ knitr::opts_chunk$set(
 ```{r, packages, message=FALSE, results='hide'}
 library(tidyverse)
 library(ggthemes)
+library(ggExtra)
+library(scales)
 library(readxl)
 library(httr)
 library(janitor)
@@ -125,9 +127,73 @@ simd_la
 
 Here we see the variation across the country blah blah blah
 
+
+Amazing difference between g and E
+
+
+```{r fig.width=16, fig.height=9}
+clean_simd %>% 
+  filter(la_name %in% c("Glasgow City", "City of Edinburgh")) %>% 
+  ggplot(aes(simd2020_decile, pct, fill = simd2020_decile)) +
+  geom_col() +
+  scale_fill_ptol(guide = guide_legend(nrow = 1),
+                  labels = c("1-most deprived", "2", "3", "4", "5",
+                             "6", "7", "8", "9", "10-most affluent")) +
+  scale_y_continuous(labels = scales::percent_format(accuracy = 1)) +
+  facet_wrap(~la_name, strip.position = "bottom") +
+  theme(legend.position = "bottom",
+        axis.text.x = element_blank(),
+        plot.caption = element_text(size = 12)) +
+  labs(title = "Percentage of datazones in SIMD 2020 deciles",
+       subtitle = "A tale of two cities",
+       x = "",
+       y = "",
+       fill = "SIMD decile", 
+       caption = "Data from https://www.gov.scot/publications/scottish-index-of-multiple-deprivation-2020-data-zone-look-up/") -> simd_la_2cities
+simd_la_2cities
+```
+
+
 ## SIMD domains by Local Authority
 
 One of John's plots in here, sorry John but I think the black will need to go to fit in with the overall aesthetic, a pure coincidence honest.....
+
+```{r, fig.width=22, fig.height=20}
+simd %>% 
+  select(DZ, DZname,IZname, LAname,SIMD2020_Access_Domain_Rank,
+         SIMD2020_Crime_Domain_Rank,SIMD2020_Decile,
+         SIMD2020_Income_Domain_Rank, SIMD2020_Employment_Domain_Rank,
+         SIMD2020_Education_Domain_Rank, SIMD2020_Health_Domain_Rank,
+         SIMD2020_Housing_Domain_Rank, SIMD2020_Income_Domain_Rank) %>% 
+  rename(Access = SIMD2020_Access_Domain_Rank,
+         Crime = SIMD2020_Crime_Domain_Rank,
+         Decile = SIMD2020_Decile,
+         Income = SIMD2020_Income_Domain_Rank, 
+         Employment = SIMD2020_Employment_Domain_Rank,
+         Education = SIMD2020_Education_Domain_Rank,
+         Health = SIMD2020_Health_Domain_Rank,
+         Housing = SIMD2020_Housing_Domain_Rank, 
+         Income = SIMD2020_Income_Domain_Rank) %>% 
+  tidyr::gather(key = "metric", value = "rank",-c(DZ, DZname, IZname, LAname, Decile)) -> ranked
+ranked <- ranked %>% 
+  mutate(rescaled_rank = rescale(rank))
+
+ranked %>% 
+  ggplot(aes(metric,y = rank)) +
+  geom_point(aes(colour = rank), position = position_jitter(width = 0.2),alpha = 0.2) +
+  scale_colour_viridis_c(option = "plasma", guide = guide_colourbar(barwidth = 30)) +
+  facet_wrap(~ LAname, ncol = 6) +
+  coord_flip() +
+  theme(legend.position = "bottom",
+        axis.text.x = element_blank()) +
+  labs(title = "SIMD 2020 Domains by Data Zone",
+        subtitle = "Grouped by Local Authority",
+       y = "Domain",
+       x = "", 
+       colour = "Rank",
+     caption = "@_johnmackintosh \n Data from https://www.gov.scot/publications/scottish-index-of-multiple-deprivation-2020-data-zone-look-up/")
+```
+
 
 
 ## Deprivation by Health Board
