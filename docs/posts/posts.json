@@ -1,5 +1,20 @@
 [
   {
+    "path": "posts/20200313_my_first_post/",
+    "title": "My first blog post",
+    "description": "A bit of background about me and this blog",
+    "author": [
+      {
+        "name": "David Henderson",
+        "url": "https://davidhen.com"
+      }
+    ],
+    "date": "2020-03-13",
+    "categories": [],
+    "preview": {},
+    "last_modified": "2020-03-13T19:00:56+00:00"
+  },
+  {
     "path": "posts/welcome/",
     "title": "Welcome to My Blog",
     "description": "Welcome to our new blog, My Blog. We hope you enjoy \nreading what we have to say!",
@@ -12,6 +27,6 @@
     "date": "2020-03-13",
     "categories": [],
     "preview": {},
-    "last_modified": "2020-03-13T17:09:57+00:00"
+    "last_modified": "2020-03-13T19:00:35+00:00"
   }
 ]
