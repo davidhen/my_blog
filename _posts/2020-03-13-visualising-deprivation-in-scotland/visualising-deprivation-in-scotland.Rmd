@@ -1,0 +1,149 @@
+---
+title: "Visualising deprivation in Scotland"
+description: |
+  A look at the 2020 iteration of the Scottish Index of Multiple Deprivation (SIMD)
+author:
+  - name: David Henderson
+    url: https://davidhen.com
+    affiliation: Scottish Centre for Administrative Data Research (SCADR)
+    affiliation_url: https://www.scadr.ac.uk/
+  - name: John MacIntosh
+    url: https://johnmackintosh.com/
+    affiliation: NHS Highland
+    affiliation_url: https://www.nhshighland.scot.nhs.uk/Pages/welcome.aspx
+  - name: Nick Bailey
+    affiliation: Urban Big Data Centre
+    affiliation_url: https://www.ubdc.ac.uk 
+date: "`r Sys.Date()`"
+output: distill::distill_article
+---
+
+```{r setup, include=FALSE, message=FALSE, warning=FALSE}
+knitr::opts_chunk$set(
+  echo = FALSE,
+  R.options = list(width = 70)
+  )
+```
+
+```{r, packages, message=FALSE, results='hide'}
+library(tidyverse)
+library(ggthemes)
+library(readxl)
+library(httr)
+library(janitor)
+library(here)
+here()
+
+theme_set(theme_minimal(base_size = 26, base_family = "Roboto") +
+            theme(panel.grid.minor = element_blank()))
+```
+
+
+```{r, data_and_clean, warning=FALSE, message=FALSE, results='hide'}
+#The third sheet in the csv is the one with the data that I want. 
+url <- "https://www.gov.scot/binaries/content/documents/govscot/publications/statistics/2020/01/scottish-index-of-multiple-deprivation-2020-data-zone-look-up-file/documents/scottish-index-of-multiple-deprivation-data-zone-look-up/scottish-index-of-multiple-deprivation-data-zone-look-up/govscot%3Adocument/SIMD_2020_Datazone_lookup_tool.xlsx"
+
+GET(url, write_disk(tf <- tempfile(fileext = ".xlsx")))
+
+simd <- read_excel(tf, 3L)
+
+simd %>% 
+  #convert all column names to lower and snake case
+  #I should come up with better names here but am being lazy
+  janitor::clean_names() %>% 
+  #keep only the columns of interest
+  select(l_aname, population, simd2020_decile) %>% 
+  #clean_names didn't quite have the desired effct for la name - sort it here
+  rename(la_name = l_aname) %>% 
+  #Now group by council and simd decile
+  group_by(la_name) %>% 
+  #Add a variable which counts the number of datazones
+  #(in each council)
+  mutate(n_dz = n()) %>% 
+  #now group by la and SIMD decile
+  group_by(la_name, simd2020_decile) %>%
+  #Now calculate pct of datazones in each decile per LA
+  #P.S. don't multiply by 100 here as ggplot will do that for us later
+  mutate(pct = n()/n_dz) %>% 
+  #easier to read (for a human it breaking the pipe here for a look)
+  arrange(la_name, simd2020_decile) %>% 
+  ungroup %>% 
+  #keep the first row of data for each council and decile 
+  #(basically a dedup)
+  distinct(la_name, simd2020_decile, .keep_all = TRUE) %>% 
+  #now factorise the SIMD variable for better plotting options
+  mutate(simd2020_decile = factor(simd2020_decile,
+                                  levels = c(1:10),
+                                  labels = c("1", "2", "3", "4", "5",
+                                             "6", "7", "8", "9", "10"))) %>% 
+  #drop the now unnecessary population variable
+  select(-population) -> clean_simd
+```
+
+
+# Introduction
+
+Yada Yada Yad, new version came out so we wanted to play
+
+## What is SIMD?
+
+Brief description
+
+## Why do we use it?
+
+Helps stratify use of services etc. etc. 
+
+## Any good examples?
+
+Link (and maybe copy a plot) to a paper using SIMD which has had high impact
+
+# SIMD 2020
+
+Data comed from the Scottish Government's SIMD 2020 webpage [here](insert link address) 
+
+## Deprivation by Local Authority
+
+```{r la_simd, fig.width=20, fig.height=18}
+clean_simd %>% 
+  ggplot(aes(simd2020_decile, pct, fill = simd2020_decile)) +
+  geom_col() +
+  scale_fill_ptol(guide = guide_legend(nrow = 1),
+                  labels = c("1-most deprived", "2", "3", "4", "5",
+                             "6", "7", "8", "9", "10-most affluent")) +
+  scale_y_continuous(labels = scales::percent_format(accuracy = 1)) +
+  facet_wrap(~la_name, strip.position = "bottom") +
+  theme(legend.position = "bottom",
+        axis.text.x = element_blank()) +
+  labs(title = "Percentage of datazones in SIMD 2020 deciles",
+       subtitle = "by Local Authority",
+       x = "",
+       y = "",
+       fill = "SIMD decile", 
+       caption = "Data from https://www.gov.scot/publications/scottish-index-of-multiple-deprivation-2020-data-zone-look-up/") -> simd_la
+simd_la
+```
+
+Here we see the variation across the country blah blah blah
+
+## SIMD domains by Local Authority
+
+One of John's plots in here, sorry John but I think the black will need to go to fit in with the overall aesthetic, a pure coincidence honest.....
+
+
+## Deprivation by Health Board
+
+## Other plots
+
+Maybe something about local and national share here. I don't like the SG version so could maybe count the ranks up then list local authorities by highest to lowest rank?
+
+# Other resources
+
+
+# Acknowledgments {.appendix}
+
+This is a place to recognize people and institutions. It may also be a good place
+to acknowledge and cite software that makes your work possible.
+
+
+
+

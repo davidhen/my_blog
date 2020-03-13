@@ -1,23 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" version="1.0">
   <url>
-    <loc>https://davidhen.github.io/blog/about.html</loc>
-    <lastmod>2020-03-13T17:09:56+00:00</lastmod>
+    <loc>https://davidhen.github.io/my_blog/about.html</loc>
+    <lastmod>2020-03-13T19:22:54+00:00</lastmod>
   </url>
   <url>
-    <loc>https://davidhen.github.io/blog/</loc>
-    <lastmod>2020-03-13T18:59:08+00:00</lastmod>
+    <loc>https://davidhen.github.io/my_blog/</loc>
+    <lastmod>2020-03-13T19:13:54+00:00</lastmod>
   </url>
   <url>
-    <loc>https://davidhen.github.io/blog/License.html</loc>
+    <loc>https://davidhen.github.io/my_blog/License.html</loc>
     <lastmod>2020-03-13T13:34:56+00:00</lastmod>
   </url>
   <url>
-    <loc>https://davidhen.github.io/blog/posts/20200313_my_first_post/</loc>
-    <lastmod>2020-03-13T19:00:56+00:00</lastmod>
+    <loc>https://davidhen.github.io/my_blog/posts/20200313_my_first_post/</loc>
+    <lastmod>2020-03-13T20:19:21+00:00</lastmod>
   </url>
   <url>
-    <loc>https://davidhen.github.io/blog/posts/welcome/</loc>
+    <loc>https://davidhen.github.io/my_blog/posts/welcome/</loc>
     <lastmod>2020-03-13T19:00:35+00:00</lastmod>
+  </url>
+  <url>
+    <loc>https://davidhen.github.io/my_blog/posts/2020-03-13-visualising-deprivation-in-scotland/</loc>
+    <lastmod>2020-03-13T21:02:46+00:00</lastmod>
   </url>
 </urlset>

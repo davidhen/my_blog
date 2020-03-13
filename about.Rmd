@@ -1,9 +1,21 @@
 ---
 title: "About this blog"
 description: |
-  Some additional details about the blog
+  _"Let me right at the outset define what I mean by alienation. It is the cry of men who feel themselves victims of blind economic forces beyond their control. It is the frustration of ordinary people excluded from the processes of decision making. The feeling of despair and  hopelessness that pervades people who feel with justification they have no real say in shaping or determining their own destinies._<br><br> _Many may not have rationalised it. May not even understand, may not be able to articulate it. But they feel it. It therefore conditions and colours their social attitudes."_<br>--James Reid, Rectorial address to the University of Glasgow, 1972.
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
 ```
+
+This blog is dedicated to the work I do with administrative data linkage, specifically in the field of health and social care. Unless indicated, all posts are authored by me, [David Henderson](https://www.davidhen.com/) . I am a research fellow based at [Edinburgh Napier University](https://www.napier.ac.uk/) and affiliated to the [Scottish Centre for Administrative Data Research (SCADR)], itself part of [Adminstrative Data Research UK (ADR UK)](https://www.adruk.org/). My background is in nursing - specifically in acute medicine, critical care, and telephone triage. I also have experience working for media companies as an assistant director for television drama, and served for 7 years in the 1st Battalion the Highlanders (Seaforth, Gordons and Camerons) as a drummer, machine gunner, signaller, and assault pioneer.
+
+All the source code for this blog can be found at https://davidhen.github.io/my_blog/ and can be used in accordance with the license shown below and in the navigation bars at the top. 
+
+I'd like to thank the creators of the `distill` R package (https://rstudio.github.io/distill/) for making it easier to produce beautiful sites like this. I'd also like to thank Tim Churches for providing the inspiration for doing this and code to help me on the way. I'd highly recommend [Tim's fantastic blog](https://timchurches.github.io/blog/)
+
+<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+
+
+
+
