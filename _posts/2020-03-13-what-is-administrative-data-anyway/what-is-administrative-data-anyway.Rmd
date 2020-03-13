@@ -1,0 +1,29 @@
+---
+title: "What is administrative data anyway?"
+description: |
+  A short description of the post.
+author:
+  - name: David Henderson
+    url: https://davidhen.com
+date: 03-13-2020
+output:
+  distill::distill_article:
+    self_contained: false
+draft: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+# Where does it come from?
+
+# Why do we use it?
+
+# What's this whole data linkage thingy?
+
+# Cool, erm..isn't that data about me?
+
+# What happens if we don't use this data?
+
+

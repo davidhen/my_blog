@@ -1,0 +1,28 @@
+---
+title: "Variation in the receipt of home care services"
+description: |
+  A short description of the post.
+author:
+  - name: David Henderson
+    url: https://davidhen.com
+date: 03-13-2020
+output:
+  distill::distill_article:
+    self_contained: false
+draft: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+# What is home care?
+
+# Where does the data come from?
+
+# How do we know there is variation?
+
+# Ok, What's causing it?
+
+# How will we find out?
+

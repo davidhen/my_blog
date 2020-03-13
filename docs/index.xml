@@ -20,19 +20,10 @@
       <media:content url="https://davidhen.github.io/my_blog/posts/2020-03-13-visualising-deprivation-in-scotland/distill-preview.png" medium="image" type="image/png" width="3840" height="3456"/>
     </item>
     <item>
-      <title>My first blog post</title>
-      <dc:creator>David Henderson</dc:creator>
-      <link>https://davidhen.github.io/my_blog/posts/20200313_my_first_post</link>
-      <description>A bit of background about me and this blog</description>
-      <guid>https://davidhen.github.io/my_blog/posts/20200313_my_first_post</guid>
-      <pubDate>Fri, 13 Mar 2020 00:00:00 +0000</pubDate>
-    </item>
-    <item>
       <title>Welcome to My Blog</title>
-      <dc:creator>Nora Jones</dc:creator>
+      <dc:creator>David Henderson</dc:creator>
       <link>https://davidhen.github.io/my_blog/posts/welcome</link>
-      <description>Welcome to our new blog, My Blog. We hope you enjoy 
-reading what we have to say!</description>
+      <description>Welcome to My Blog.</description>
       <guid>https://davidhen.github.io/my_blog/posts/welcome</guid>
       <pubDate>Fri, 13 Mar 2020 00:00:00 +0000</pubDate>
     </item>
