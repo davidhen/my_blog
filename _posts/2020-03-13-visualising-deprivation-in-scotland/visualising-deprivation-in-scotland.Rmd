@@ -7,7 +7,7 @@ author:
     url: https://davidhen.com
     affiliation: Scottish Centre for Administrative Data Research (SCADR)
     affiliation_url: https://www.scadr.ac.uk/
-  - name: John MacIntosh
+  - name: John MacKintosh
     url: https://johnmackintosh.com/
     affiliation: NHS Highland
     affiliation_url: https://www.nhshighland.scot.nhs.uk/Pages/welcome.aspx
