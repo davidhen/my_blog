@@ -1,30 +1,5 @@
 [
   {
-    "path": "posts/2020-03-13-visualising-deprivation-in-scotland/",
-    "title": "Visualising deprivation in Scotland",
-    "description": "A look at the 2020 iteration of the Scottish Index of Multiple Deprivation (SIMD)",
-    "author": [
-      {
-        "name": "David Henderson",
-        "url": "https://davidhen.com"
-      },
-      {
-        "name": "John MacKintosh",
-        "url": "https://johnmackintosh.com/"
-      },
-      {
-        "name": "Nick Bailey",
-        "url": {}
-      }
-    ],
-    "date": "2020-03-13",
-    "categories": [],
-    "preview": "posts/2020-03-13-visualising-deprivation-in-scotland/distill-preview.png",
-    "last_modified": "2020-03-13T22:36:08+00:00",
-    "preview_width": 3840,
-    "preview_height": 3456
-  },
-  {
     "path": "posts/welcome/",
     "title": "Welcome to My Blog",
     "description": "Welcome to My Blog.",
