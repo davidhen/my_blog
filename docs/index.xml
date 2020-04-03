@@ -7,7 +7,15 @@
     <description>A blog about health and social care administrative data science
 </description>
     <generator>Distill</generator>
-    <lastBuildDate>Fri, 13 Mar 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 03 Apr 2020 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Covid-19 vulnerability</title>
+      <dc:creator>David Henderson</dc:creator>
+      <link>https://davidhen.github.io/my_blog/posts/2020-04-01-covid-19-vulnerability</link>
+      <description>Mapping respiratory and demographic vulnerability to NHS Health Boards</description>
+      <guid>https://davidhen.github.io/my_blog/posts/2020-04-01-covid-19-vulnerability</guid>
+      <pubDate>Fri, 03 Apr 2020 00:00:00 +0000</pubDate>
+    </item>
     <item>
       <title>Welcome to My Blog</title>
       <dc:creator>David Henderson</dc:creator>

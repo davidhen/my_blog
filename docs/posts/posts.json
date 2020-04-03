@@ -1,5 +1,20 @@
 [
   {
+    "path": "posts/2020-04-01-covid-19-vulnerability/",
+    "title": "Covid-19 vulnerability",
+    "description": "Mapping respiratory and demographic vulnerability to NHS Health Boards",
+    "author": [
+      {
+        "name": "David Henderson",
+        "url": "https://davidhen.com"
+      }
+    ],
+    "date": "2020-04-03",
+    "categories": [],
+    "preview": {},
+    "last_modified": "2020-04-03T12:58:36+01:00"
+  },
+  {
     "path": "posts/welcome/",
     "title": "Welcome to My Blog",
     "description": "Welcome to My Blog.",

@@ -15,6 +15,7 @@ author:
     affiliation: Urban Big Data Centre
     affiliation_url: https://www.ubdc.ac.uk 
 date: "`r Sys.Date()`"
+bibliography: references.bib
 draft: true
 output: distill::distill_article
 ---
@@ -36,6 +37,10 @@ library(httr)
 library(janitor)
 library(here)
 here()
+
+colours_davidhen <- c("#e53935", "#3949ab", "#8e24aa", "#039be5",
+                      "#00897b", "#7cb342", "#fdd835", "#fb8c00",
+                      "#6d4c41", "#546e7a")
 
 theme_set(theme_minimal(base_size = 26, base_family = "Roboto") +
             theme(panel.grid.minor = element_blank()))
@@ -90,7 +95,9 @@ Yada Yada Yad, new version came out so we wanted to play
 
 ## What is SIMD?
 
-Brief description
+The Scottish Index of Multiple Deprivation is an area-based measure that assesses the extent of deprivation in each area over seven domains namely: income, employment, education, health, access to services, crime, and housing [@SG2020simd]. There are n areas in Scotland, known as datazones, each comprising approximately 1000 people. 
+
+Brief description [@noble2006measuring;@bailey2003measuring] 
 
 ## Why do we use it?
 
@@ -110,8 +117,9 @@ Data comed from the Scottish Government's SIMD 2020 webpage [here](insert link a
 clean_simd %>% 
   ggplot(aes(simd2020_decile, pct, fill = simd2020_decile)) +
   geom_col() +
-  scale_fill_ptol(guide = guide_legend(nrow = 1),
-                  labels = c("1-most deprived", "2", "3", "4", "5",
+  scale_fill_manual(values = colours_davidhen, 
+                    guide = guide_legend(nrow = 1),
+                    labels = c("1-most deprived", "2", "3", "4", "5",
                              "6", "7", "8", "9", "10-most affluent")) +
   scale_y_continuous(labels = scales::percent_format(accuracy = 1)) +
   facet_wrap(~la_name, strip.position = "bottom") +
@@ -137,8 +145,9 @@ clean_simd %>%
   filter(la_name %in% c("Glasgow City", "City of Edinburgh")) %>% 
   ggplot(aes(simd2020_decile, pct, fill = simd2020_decile)) +
   geom_col() +
-  scale_fill_ptol(guide = guide_legend(nrow = 1),
-                  labels = c("1-most deprived", "2", "3", "4", "5",
+  scale_fill_manual(values = colours_davidhen, 
+                    guide = guide_legend(nrow = 1),
+                    labels = c("1-most deprived", "2", "3", "4", "5",
                              "6", "7", "8", "9", "10-most affluent")) +
   scale_y_continuous(labels = scales::percent_format(accuracy = 1)) +
   facet_wrap(~la_name, strip.position = "bottom") +
