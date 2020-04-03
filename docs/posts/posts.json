@@ -11,8 +11,10 @@
     ],
     "date": "2020-04-03",
     "categories": [],
-    "preview": {},
-    "last_modified": "2020-04-03T12:58:36+01:00"
+    "preview": "posts/2020-04-01-covid-19-vulnerability/distill-preview.png",
+    "last_modified": "2020-04-03T13:09:51+01:00",
+    "preview_width": 5400,
+    "preview_height": 7200
   },
   {
     "path": "posts/welcome/",
